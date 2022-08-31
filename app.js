@@ -58,7 +58,9 @@ app.use("/", userRoute);
 app.use("/books/:id/comments",commentRoute);
 app.use("/",indexRoute);
 
-
-app.listen(5000, process.env.IP, function(){
-    console.log("Server started");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
+
+
