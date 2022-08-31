@@ -59,6 +59,6 @@ app.use("/books/:id/comments",commentRoute);
 app.use("/",indexRoute);
 
 
-app.listen(5000, process.env.IP, function(){
+app.listen(80, process.env.IP, function(){
     console.log("Server started");
 });
