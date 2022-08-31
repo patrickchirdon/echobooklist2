@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kaloy's BookClub</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+    </head>
+    <body>
+    <!-- NAVBAR
+================================================== -->
+
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/books">Kaloy's BookClub</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/books">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+            <form action="/books" method="GET" class="navbar-form navbar-left">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="search" placeholder="Book Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>          
+          <ul class="nav navbar-nav navbar-right">
+                <% if (!currentUser){ %>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                    <% } else { %>
+                        <li><a href="/users/<%= currentUser._id %>">Signed In As <%= currentUser.username %></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    <% } %>
+          </ul>
+      </div>
+    </nav>
+
+  </div>
+</div>
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="/images/download.gif" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+             <h1>Welcome To the Kaloy's BookClub</h1>
+              <p>Books are essential to ones growth. Learn from the masters, go on a mind's journey. Here are a collection of must reads and recommended selection. </p>
+              <p><a class="btn btn-lg btn-primary" href="/register" role="button">view Books</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="/images/download.gif" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Join us and share..</h1>
+              <p>Sign up and Contribute to the BookClub. Post your must read's, and top 10's. Share that book that changed your life and comment on others.Join our community</p>
+              <p><a class="btn btn-lg btn-primary" href="/register" role="button">Sign up</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="/images/download.gif" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Share that book that changed your life</h1>
+              <p>Let us share our blessings with others. Share that book that opened your eyes to the bigger truth. Through our sharing and community building we can make exponential growth in our own lives..</p>
+              <p><a class="btn btn-lg btn-primary" href="/books/new" role="button">Add a new book</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+   
+   <div class="container">
+       <% if(error && error.length > 0){ %>
+           <div class="alert alert-danger" role="alert">
+              <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+              <%= success %>
+            </div>
+        <% } %>
+   </div> 
+
+
+        

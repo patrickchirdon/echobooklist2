@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Edit your Comments</h1>
+        <div class="formstyle">
+            <form action="/books/<%= book_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                
+                <div class="form-group">
+                    <textarea name="comment[text]" class="form-control" placeholder="<%= comment.text %>"></textarea>
+                </div>
+                <div class="from-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>  
+                </div>
+            </form>
+            <a href="/books">Go Back</a>
+        </div>
+        
+        
+    </div>
+</div>
+<% include ../partials/footer %>

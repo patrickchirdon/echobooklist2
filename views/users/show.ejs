@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h1 ><%= user.firstName +" "+ user.lastName %></h1>
+            <div class="thumbnail">                
+                <img  src="<%= user.avatar %>" alt="<%= user.username %> avatar">
+                <div class="caption">email <a href="mailto:<%= user.email %>"><%= user.username %></a></div>
+                <% if(currentUser && user._id.equals(currentUser._id)|| currentUser && currentUser.isAdmin){ %>
+                            <a class = "btn btn-warning btn-xs " href="/users/<%= user._id %>/edit">edit profile</a>
+                            
+                     <% } %>       
+            </div>
+            <p><%= user.intro %></p>
+        </div>
+        <div class="col-md-8">
+            <h2>Books Shared:</h2>
+           <% books.forEach(function(book){ %>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="thumbnail">
+                                <img class="img-circle" src="<%= book.image %>">
+                                <p>
+                                    <a href="/books/<%= book._id %>" class="btn btn-primary">More Info</a>
+                                </p>
+                            </div>
+                        </div>
+                    <% }); %>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

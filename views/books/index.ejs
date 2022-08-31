@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+
+
+
+<!--     <div class="container">
+            <header class="jumbotron">
+                <div class="container">
+                    <h1>Welcome To da'BookClub</h1>
+                    <p>Browse our hand picked books to stimulate the mind and expand your world</p>
+                    <p>
+                        <a class="btn btn-primary btn-large" href="/books/new">Add a New Book!</a>
+                    </p>
+                </div>
+            </header> -->
+    <!-- Three columns of text below the carousel -->
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+         <div class="col-md-12">
+             <% if(noMatch !== null) { %>
+                     <h3><%= noMatch %></h3>
+             <% } %>
+         </div>
+    </div>
+              
+            <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+                     <% books.forEach(function(book){ %>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="thumbnail">
+                                <img class="img-circle" src="<%= book.image %>">
+                                <div class="caption">
+                                    <h4><strong><%= book.name %></strong> by <%= book.author %> </h4>
+                                </div>
+                                <p>
+                                    <a href="/books/<%= book._id %>" class="btn btn-primary">More Info</a>
+                                </p>
+                            </div>
+                        </div>
+                    <% }); %>
+            </div>
+    </div>
+    <% include ../partials/footer %>
+    
+        
