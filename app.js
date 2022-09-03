@@ -22,7 +22,7 @@ var bookRoute = require("./routes/books"),
 //Moment configuration
 app.locals.moment = require("moment");
 
-mongoose.connect(process.env.MONGODB_URI || " "mongodb+srv://patrick:Tobyismycat1@cluster0.td6sf.mongodb.net/ebooks"");
+mongoose.connect(process.env.MONGODB_URI || " mongodb+srv://patrick:Tobyismycat1@cluster0.td6sf.mongodb.net/ebooks");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
