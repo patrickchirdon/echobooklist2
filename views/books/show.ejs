@@ -30,6 +30,42 @@
                     <% } %>
                     <p><a href="<%= book.amazonLink %>" target="_blank"><img src="http://foodforceinc.com/wp-content/uploads/2018/01/amazon-btn.png"></a></p>
                 </div>
+                
+                
+                <div class="background">
+
+
+<button onclick="copyToClipboard()">Copy Link</button>
+
+<script>
+function copyToClipboard(text) {
+var inputc = document.body.appendChild(document.createElement("input"));
+inputc.value = window.location.href;
+inputc.focus();
+inputc.select();
+document.execCommand('copy');
+inputc.parentNode.removeChild(inputc);
+alert("URL Copied.");
+}
+</script>
+
+
+
+
+               <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                
+<a href="https://echoinvesting.io/">Brought to you by Echo Investments </a>          
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="7OiPyu4z"></script>
+
+<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+<script type="IN/Share" data-url="https://www.linkedin.com"></script>
+
+
+    </div>
+ 
             </div>
             <div class="well">
                 <div class="text-right">
