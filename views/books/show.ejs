@@ -5,8 +5,7 @@
             <p class="lead">BookClub</p>
             <div class="list-group">
                 <li class="list-group-item"><img src="<%= book.image %>" class="responsive"></li>
-                <li class="list-group-item">info 2</li>  
-                <li class="list-group-item">info 3</li>  
+                
             </div>
             
         </div>        
@@ -22,6 +21,12 @@
                         <em>Submitted By <a href="/users/<%= book.postAuthor.id %>"><%= book.postAuthor.username %></a>, <%= moment(book.createdAt).fromNow() %></em>
                     </p>
                     
+                     <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+               
                     <% if(currentUser && book.postAuthor.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                         <a class="delete-form btn btn-xs btn-warning" href="/books/<%= book._id %>/edit">Edit</a>
                         <form class="delete-form" action="/books/<%= book._id %>?_method=DELETE" method="POST">
