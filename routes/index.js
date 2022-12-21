@@ -28,6 +28,7 @@ router.post("/register", function(req, res){
         lastName: req.body.lastName,
         email: req.body.email,
         avatar: req.body.avatar,
+        phone: req.body.phone,
         intro: req.body.intro
       });
        if(req.body.adminCode === process.env.ADMINCODE) {
